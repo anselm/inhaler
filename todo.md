@@ -17,7 +17,20 @@ Open work, one line each; the thinking is in `devlog/`.
 - [ ] Measure the local model against a stronger one on a hand-read sample before trusting recall. Not done.
 
 ## Service
-- [ ] A lease on each claimed row, so two workers can run (now it assumes one).
-- [ ] Deploy somewhere, and decide who may add a beat.
-- [ ] The larger question: one inhaler for cortes, saltspring, matchmaker and the ontology projects. See the devlog.
-- [ ] esimv1: a module that reads a beat's located facts onto a scenario's timeline; the Sausalito page reading `/issues`.
+- [x] Deployed at https://inhaler.exe.xyz/ with a nightly backup and phone alerts (22 November).
+- [ ] **Who reads on the VM** (Anselm to choose): a small hosted model with its own key and a daily cap, a worker on canada1 that posts results back, or both. Until then the VM only fetches.
+- [ ] A write side on the API with a key, for a remote reader and for adding beats.
+- [ ] A lease on each claimed row, so two workers can run.
+- [ ] Its own bucket and credential for backups; a private ntfy topic.
+
+## Taking over the other aggregators (`devlog/20261122-one-inhaler.md`)
+- [ ] A lens per client: the digest as a named, pluggable reading with its own table.
+- [ ] Matchmaker's source kinds, probe and 161 sources come here; then matchmaker reads from here.
+- [ ] The ontology project's 21 feeds become a beat; it reads from here.
+- [ ] Cortes and Salt Spring become beats; their extra source kinds come here.
+- [ ] Import what each already holds before its fetcher is switched off. Decide `saltspring-ontology`.
+- [ ] The world's dated future events (esimv1's `future-known.toml`) as a beat, once each row has a source.
+
+## For esimv1
+- [ ] The Sausalito page reading `/beats/sausalito/issues` and facts for the period on screen.
+- [ ] A module that puts a beat's located facts on a scenario's timeline.

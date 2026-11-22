@@ -35,3 +35,11 @@ only their own reading of what it fetched (`devlog/20261122-one-inhaler.md`).
 - An item is marked gone only after a successful fetch of a source that lists everything it has
   (`lists_all` in the beat file), never after a failed or empty fetch.
 - Nothing about pitching, fundraising or private conversations goes in this repository.
+- Live since 2026-11-22: https://inhaler.exe.xyz/ (exe.dev VM `inhaler`; units `inhaler-loop`, `inhaler-api` on port
+  8000, `inhaler-backup.timer`; code in `/srv/inhaler`, database `/srv/inhaler/data/inhale.db`, settings in
+  `/srv/inhaler/env`). `deploy/deploy.sh` by hand on Anselm's say; it never overwrites the VM's database. The VM has no
+  model, so its loop fetches only (`INHALE_PASSES=fetch`) until Anselm chooses who reads (`devlog/20261122-one-inhaler.md`).
+  To read on canada1 against a copy: fetch `inhaler/inhale-latest.db.gz` from the bucket, or run a beat locally.
+- Nightly backup to Cloudflare R2, bucket `esimv1`, prefix `inhaler/` (the credential is esimv1's, `~/.config/cf/r2`).
+- The other aggregators (matchmaker, ontology-scraper, cortes, saltspring) are other rooms' projects: read, do not change.
+
