@@ -1,6 +1,6 @@
-name = "esimv1-social"
+name = "inhaler"
 horizon = "2027"
-repo = "anselm/esimv1-social"
+repo = "anselm/inhaler"
 code = "local"
 deploy = "none"
 status = "active"        # active | parked (struck through on the dashboard) | archived (hidden)

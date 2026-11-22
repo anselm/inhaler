@@ -1,4 +1,4 @@
-# esimv1-social
+# inhaler
 
 Project-specific orientation only. House policy (devlog, git, UX, writing,
 deploy) comes from the harness and is not repeated here.
@@ -7,13 +7,14 @@ deploy) comes from the harness and is not repeated here.
 
 An inhaler: a smart aggregator that reads public news, notices and posts about a place and
 digests them in passes into dated, located, sourced facts and a list of issues. No
-presentation. First beat: Sausalito, for `esimv1-playable-sausalito`. Anselm's question,
-open: whether this becomes the one inhaler that cortes, saltspring, matchmaker and the
-ontology projects talk to (`devlog/20261122-design.md`). Not deployed.
+presentation. First beat: Sausalito, for `esimv1-playable-sausalito`. Named `esimv1-social` for its first
+hours. Anselm, 22 November 2026: it is a separate service unrelated to esimv1, it is to take over
+the fetching that cortes, saltspring, matchmaker and the ontology projects each do, and they keep
+only their own reading of what it fetched (`devlog/20261122-one-inhaler.md`).
 
 ## Where things are
 
-- Code: this folder. Repo: `anselm/esimv1-social` (public).
+- Code: this folder. Repo: `anselm/inhaler` (public).
 - Devlog: `devlog/` (dated entries; read the tail first). `todo.md` is the open work.
 - `bin/inhale.mjs` the command line; `lib/store.mjs` the only code that touches the database;
   `lib/fetch.mjs` the only code that makes a request for a source; `lib/sources/*.mjs` one file

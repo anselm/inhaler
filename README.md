@@ -1,6 +1,6 @@
-# esimv1-social
+# inhaler
 
-An inhaler. It reads what is published about a place (local news, official notices, weather
+It reads what is published about a place (local news, official notices, weather
 alerts, public posts) and digests it into facts: what a source said happened, was decided,
 was proposed or was measured, with the date, the place on a map where the source named
 one, and a link back to the source.
@@ -9,8 +9,10 @@ It does not present anything. It is the layer other programs ask: a page that wa
 show what a town is talking about, a language model looking for questions worth
 simulating, a scenario that wants reported events on its timeline.
 
-It is a first version, made in one sitting on 22 November 2026 and run on one place,
-Sausalito, California. `devlog/` says what it rests on and what it gets wrong.
+It began on 22 November 2026 as `esimv1-social`, the news layer for one simulation, and was
+renamed the same day when it was plain that it belongs to no one project. It is meant to be
+the one reader for several: a simulator, a jobs matcher, an ontology builder, two island
+sites. So far it is a first version that has read one place, Sausalito, California. `devlog/` says what it rests on and what it gets wrong.
 
 ## How it works
 
