@@ -1,0 +1,17 @@
+{
+  "id": "sausalito",
+  "name": "Sausalito",
+  "about": "Sausalito is a city of about 7,000 people on Richardson Bay in Marin County, California, just north of the Golden Gate Bridge. Its waterfront includes downtown, the Marinship and the floating-home harbors on Gate 5 Road and Waldo Point; Marin City lies beside it.",
+  "center": [37.859, -122.485],
+  "bbox": [37.836, -122.514, 37.878, -122.461],
+  "sources": [
+    { "kind": "feed", "name": "Marin Independent Journal: Sausalito", "url": "https://www.marinij.com/tag/sausalito/feed/", "every_s": 3600 },
+    { "kind": "feed", "name": "Pacific Sun: Sausalito", "url": "https://pacificsun.com/tag/sausalito/feed/", "every_s": 7200 },
+    { "kind": "google-news", "name": "Google News: Sausalito", "url": "Sausalito", "every_s": 3600 },
+    { "kind": "nws-alerts", "name": "National Weather Service alerts", "url": "37.859,-122.485", "every_s": 900, "lists_all": true },
+    { "kind": "fxtwitter", "name": "X: NWS Bay Area", "url": "NWSBayArea", "every_s": 1800 },
+    { "kind": "fxtwitter", "name": "X: Golden Gate Bridge district", "url": "GGBridge", "every_s": 3600 },
+    { "kind": "fxtwitter", "name": "X: Golden Gate Ferry", "url": "GoldenGateFerry", "every_s": 3600 },
+    { "kind": "fxtwitter", "name": "X: Marin County Sheriff", "url": "MarinSheriff", "every_s": 3600 }
+  ]
+}

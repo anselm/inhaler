@@ -1,0 +1,11 @@
+{
+  "name": "esimv1-social",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "An inhaler: reads the public news, notices and posts about a place, and digests them into dated, located, sourced facts.",
+  "license": "MIT",
+  "bin": { "inhale": "bin/inhale.mjs" },
+  "engines": { "node": ">=22.5" },
+  "dependencies": { "fast-xml-parser": "^4.5.0" }
+}
