@@ -23,6 +23,7 @@ Open work, one line each; the thinking is in `devlog/`.
 - [ ] Dates: a fact's date is the model's reading of "Tuesday"; check it against the item's date and flag the far ones.
 - [ ] Locate: street numbers and intersections; a fallback geocoder for names OpenStreetMap lacks; say how many facts found no place.
 - [ ] Issues: keep an issue's identity between readings, so its history can be followed.
+- [ ] **Facts that contradict each other.** On 23 November the store held three facts that Measure X was defeated and two that it was approved; the two were a model's guess from articles written before the vote, one with no supporting words and one whose words did not support it. The issues reading now takes only facts with found words and is told to go by the later and the more numerous, but nothing detects a contradiction, and a quote being present does not mean it supports the claim. Wanted: a check that the quoted words entail the claim, and a flag on facts that disagree.
 - [ ] Measure the local model against a stronger one on a hand-read sample before trusting recall. Not done.
 
 ## Service
