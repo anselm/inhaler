@@ -68,3 +68,27 @@ Wrong in ways seen in the first output: a thing and its park come back as two pl
 ("Smelt Bay" and "Smelt Bay Provincial Park"); a plain word that is also a place's name
 matches; GeoNames has no streets, so Sausalito's street-level facts still rest on
 OpenStreetMap having answered once.
+
+## A wrong statement on a public page, and what it showed
+
+Anselm asked what the inhaler says is going on in Sausalito. Reading its issues back, one
+said "Sausalito voters approved Measure X". The measure was defeated: three facts in the
+store said so. Two facts said approved. Both came from articles written before the vote
+("Voters decide who will rule the waterfront"), where the small local model guessed an
+outcome; one had no supporting words and one had words that did not support it. The
+issues reading, by the same small model, took the wrong pair. That summary had been on
+https://sausalito.exe.xyz/ for most of a day.
+
+Changed: the issues reading takes only facts whose supporting words were found in the
+source, and is told that facts can disagree, to go by the later and the more numerous,
+to say when sources differ, and not to name private people. Read again with the hosted
+model (one call past the day's cap of 300, which the islands' first reading had used
+up), the issue now says the sources differ and that later coverage points to defeat.
+
+Not fixed: the two wrong facts are still in the store. Words being found in the source
+does not mean they support the claim. Nothing notices that two facts contradict each
+other. And the first reading of a place by the small local model is not to be trusted
+for outcomes; this is the measurement that was listed as not done.
+
+The same reading surfaced a report of a former official's arrest. It is news and the
+inhaler keeps it. The Sausalito page now leaves such reports out of its panel.
