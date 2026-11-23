@@ -1,0 +1,119 @@
+{
+  "id": "world",
+  "name": "World news",
+  "about": "General news of the world, science and public institutions, from broadcasters, newspapers and agencies that publish feeds: the list the ontology project (ontology.monster) reads. Collected as it comes; nothing here is read by a model or placed on a map.",
+  "sources": [
+    {
+      "kind": "feed",
+      "name": "ABC News Australia, Just In",
+      "url": "https://www.abc.net.au/news/feed/51120/rss.xml",
+      "every_s": 3600,
+      "digest": false,
+      "category": "world"
+    },
+    {
+      "kind": "feed",
+      "name": "NPR World",
+      "url": "https://feeds.npr.org/1004/rss.xml",
+      "every_s": 3600,
+      "digest": false,
+      "category": "world"
+    },
+    {
+      "kind": "feed",
+      "name": "NPR News",
+      "url": "https://feeds.npr.org/1001/rss.xml",
+      "every_s": 3600,
+      "digest": false,
+      "category": "news"
+    },
+    {
+      "kind": "feed",
+      "name": "DW Top Stories",
+      "url": "https://rss.dw.com/rdf/rss-en-top",
+      "every_s": 3600,
+      "digest": false,
+      "category": "world"
+    },
+    {
+      "kind": "feed",
+      "name": "DW All",
+      "url": "https://rss.dw.com/rdf/rss-en-all",
+      "every_s": 3600,
+      "digest": false,
+      "category": "world"
+    },
+    {
+      "kind": "feed",
+      "name": "Al Jazeera English",
+      "url": "https://www.aljazeera.com/xml/rss/all.xml",
+      "every_s": 3600,
+      "digest": false,
+      "category": "world"
+    },
+    {
+      "kind": "feed",
+      "name": "The Guardian, World",
+      "url": "https://www.theguardian.com/world/rss",
+      "every_s": 3600,
+      "digest": false,
+      "category": "world"
+    },
+    {
+      "kind": "feed",
+      "name": "UN News",
+      "url": "https://news.un.org/feed/subscribe/en/news/all/rss.xml",
+      "every_s": 3600,
+      "digest": false,
+      "category": "world"
+    },
+    {
+      "kind": "feed",
+      "name": "GOV.UK news and communications",
+      "url": "https://www.gov.uk/search/news-and-communications.atom",
+      "every_s": 3600,
+      "digest": false,
+      "category": "government"
+    },
+    {
+      "kind": "feed",
+      "name": "Nature",
+      "url": "https://www.nature.com/nature.rss",
+      "every_s": 3600,
+      "digest": false,
+      "category": "science"
+    },
+    {
+      "kind": "feed",
+      "name": "Science news",
+      "url": "https://www.science.org/rss/news_current.xml",
+      "every_s": 3600,
+      "digest": false,
+      "category": "science"
+    },
+    {
+      "kind": "feed",
+      "name": "Quanta Magazine",
+      "url": "https://www.quantamagazine.org/feed/",
+      "every_s": 3600,
+      "digest": false,
+      "category": "science"
+    },
+    {
+      "kind": "feed",
+      "name": "gCaptain",
+      "url": "https://gcaptain.com/feed/",
+      "every_s": 3600,
+      "digest": false,
+      "category": "marine"
+    },
+    {
+      "kind": "feed",
+      "name": "War on the Rocks",
+      "url": "https://warontherocks.com/feed/",
+      "every_s": 3600,
+      "digest": false,
+      "category": "geopolitics"
+    }
+  ]
+}

@@ -9,6 +9,12 @@ Open work, one line each; the thinking is in `devlog/`.
 - [ ] Follow a headline to its article: Google News gives only a title, so its facts are thin.
 - [ ] A probe that turns a name or address into a source definition, and a `candidate` state for sources a person suggested (matchmaker has both).
 
+## Places and subjects (Anselm's questions, 23 November; `devlog/20261123-places-subjects-and-the-world.md`)
+- [ ] A base gazetteer that needs no outside service at lookup or at set-up: GeoNames loaded once into the store, with OpenStreetMap's local names added per beat when its servers answer.
+- [ ] Every place an item names, not one point: a table of an item's places, from its facts and from the gazetteer names found in its text.
+- [ ] Mentions as the digest's by-product: the organisations, offices and things named, typed, as written. Identity and relations stay with the ontology project.
+- [ ] A small fixed list of topics in place of free words.
+
 ## Passes
 - [ ] The same story from several outlets is digested several times. Group by title likeness before the digest and read one.
 - [ ] Dates: a fact's date is the model's reading of "Tuesday"; check it against the item's date and flag the far ones.
@@ -29,7 +35,8 @@ Open work, one line each; the thinking is in `devlog/`.
 Not yet. Anselm, 22 November: "lets not change matchmaker or other projects yet - the inhaler will have to prove itself first". The first item below is this project's own and can go ahead.
 - [ ] A lens per client: the digest as a named, pluggable reading with its own table.
 - [ ] Matchmaker's source kinds, probe and 161 sources come here; then matchmaker reads from here.
-- [ ] The ontology project's 21 feeds become a beat; it reads from here.
+- [x] The ontology project's active feeds are the `world` beat, collected and read by no model (23 November). It still fetches for itself.
+- [ ] ReliefWeb answers 406 to this reader and is left out; BBC and the New York Times are left out as the ontology project left them, for their terms; its three paused feeds are left out.
 - [x] Cortes and Salt Spring are beats, with the island projects' source kinds (23 November). The island sites still fetch for themselves.
 - [ ] Per item for the island sites: an importance and a category for news, as their pages use; a read of how many items their pages need that are not here.
 - [ ] Radio: the stations are named, nothing is read. A transcript of a local news broadcast would be a source.
