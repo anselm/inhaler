@@ -30,7 +30,10 @@ Not yet. Anselm, 22 November: "lets not change matchmaker or other projects yet 
 - [ ] A lens per client: the digest as a named, pluggable reading with its own table.
 - [ ] Matchmaker's source kinds, probe and 161 sources come here; then matchmaker reads from here.
 - [ ] The ontology project's 21 feeds become a beat; it reads from here.
-- [ ] Cortes and Salt Spring become beats; their extra source kinds come here.
+- [x] Cortes and Salt Spring are beats, with the island projects' source kinds (23 November). The island sites still fetch for themselves.
+- [ ] Per item for the island sites: an importance and a category for news, as their pages use; a read of how many items their pages need that are not here.
+- [ ] Radio: the stations are named, nothing is read. A transcript of a local news broadcast would be a source.
+- [ ] The ontology project fetches each article's page; here an item is what the feed gave. A full-text pass (mark, sweep) before the digest.
 - [ ] Import what each already holds before its fetcher is switched off. Decide `saltspring-ontology`.
 - [ ] The world's dated future events (esimv1's `future-known.toml`) as a beat, once each row has a source.
 

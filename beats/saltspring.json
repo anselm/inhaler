@@ -1,0 +1,105 @@
+{
+  "id": "saltspring",
+  "name": "Salt Spring Island",
+  "about": "Salt Spring Island is the largest of the southern Gulf Islands in British Columbia, Canada, with about 11,000 people; its main village is Ganges, and ferries run from Fulford Harbour, Vesuvius and Long Harbour.",
+  "center": [
+    48.82,
+    -123.5
+  ],
+  "bbox": [
+    48.66,
+    -123.66,
+    48.94,
+    -123.33
+  ],
+  "media": [
+    {
+      "kind": "radio",
+      "name": "CFSI 107.9, Salt Spring Island Radio",
+      "stream": "https://cfsi.streamon.fm/listen-64-aac.pls"
+    }
+  ],
+  "sources": [
+    {
+      "kind": "google-news",
+      "name": "Google News: Salt Spring Island",
+      "url": "\"Salt Spring Island\"",
+      "hl": "en-CA",
+      "gl": "CA",
+      "every_s": 3600
+    },
+    {
+      "kind": "feed",
+      "name": "Gulf Islands Driftwood",
+      "url": "https://www.gulfislandsdriftwood.com/feed/",
+      "every_s": 3600
+    },
+    {
+      "kind": "feed",
+      "name": "Salt Spring Exchange",
+      "url": "https://saltspringexchange.com/feed/",
+      "every_s": 3600
+    },
+    {
+      "kind": "feed",
+      "name": "Times Colonist",
+      "url": "https://www.timescolonist.com/rss",
+      "every_s": 3600,
+      "filter": "salt ?spring|gulf islands|ganges"
+    },
+    {
+      "kind": "feed",
+      "name": "CHEK News",
+      "url": "https://www.cheknews.ca/feed/",
+      "every_s": 3600,
+      "filter": "salt ?spring|gulf islands"
+    },
+    {
+      "kind": "mastodon",
+      "name": "Mastodon: #saltspringisland",
+      "url": "saltspringisland",
+      "every_s": 3600
+    },
+    {
+      "kind": "mastodon",
+      "name": "Mastodon: #saltspring",
+      "url": "saltspring",
+      "every_s": 3600
+    },
+    {
+      "kind": "inaturalist",
+      "name": "iNaturalist observations",
+      "url": "box",
+      "every_s": 21600,
+      "digest": false
+    },
+    {
+      "kind": "flickr",
+      "name": "Flickr: saltspringisland",
+      "url": "saltspringisland",
+      "every_s": 21600,
+      "digest": false
+    },
+    {
+      "kind": "commons",
+      "name": "Wikimedia Commons, nearby photographs",
+      "url": "near",
+      "every_s": 604800,
+      "digest": false
+    },
+    {
+      "kind": "openverse",
+      "name": "Openverse: Salt Spring Island",
+      "url": "Salt Spring Island",
+      "every_s": 604800,
+      "digest": false
+    },
+    {
+      "kind": "wikipedia",
+      "name": "Wikipedia, nearby articles",
+      "url": "near",
+      "every_s": 604800,
+      "digest": false
+    }
+  ]
+}

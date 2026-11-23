@@ -1,0 +1,100 @@
+{
+  "id": "cortes",
+  "name": "Cortes Island",
+  "about": "Cortes Island is an island of about 1,000 people at the north end of the Strait of Georgia in British Columbia, Canada, reached by ferry from Quadra Island; its communities include Mansons Landing, Whaletown and Squirrel Cove, home of the Klahoose First Nation.",
+  "center": [
+    50.062,
+    -124.968
+  ],
+  "bbox": [
+    49.93,
+    -125.13,
+    50.21,
+    -124.84
+  ],
+  "media": [
+    {
+      "kind": "radio",
+      "name": "CKTZ 89.5, Cortes Community Radio",
+      "stream": "https://s5.voscast.com:8219/stream.mp3"
+    }
+  ],
+  "sources": [
+    {
+      "kind": "google-news",
+      "name": "Google News: Cortes Island",
+      "url": "\"Cortes Island\"",
+      "hl": "en-CA",
+      "gl": "CA",
+      "every_s": 3600
+    },
+    {
+      "kind": "feed",
+      "name": "Cortes Currents",
+      "url": "https://cortescurrents.ca/feed/",
+      "every_s": 3600
+    },
+    {
+      "kind": "feed",
+      "name": "Campbell River Mirror",
+      "url": "https://www.campbellrivermirror.com/feed/",
+      "every_s": 3600,
+      "filter": "cortes"
+    },
+    {
+      "kind": "feed",
+      "name": "VanIsle News",
+      "url": "https://vanisle.news/feed/",
+      "every_s": 3600,
+      "filter": "cortes|klahoose|quadra.+cortes"
+    },
+    {
+      "kind": "feed",
+      "name": "Tideline",
+      "url": "https://www.cortesisland.com/cgi-bin/tideline/show_rss.cgi?S=0",
+      "every_s": 3600,
+      "charset": "iso-8859-1"
+    },
+    {
+      "kind": "mastodon",
+      "name": "Mastodon: #cortesisland",
+      "url": "cortesisland",
+      "every_s": 3600
+    },
+    {
+      "kind": "inaturalist",
+      "name": "iNaturalist observations",
+      "url": "box",
+      "every_s": 21600,
+      "digest": false
+    },
+    {
+      "kind": "flickr",
+      "name": "Flickr: cortesisland",
+      "url": "cortesisland",
+      "every_s": 21600,
+      "digest": false
+    },
+    {
+      "kind": "commons",
+      "name": "Wikimedia Commons, nearby photographs",
+      "url": "near",
+      "every_s": 604800,
+      "digest": false
+    },
+    {
+      "kind": "openverse",
+      "name": "Openverse: Cortes Island",
+      "url": "Cortes Island",
+      "every_s": 604800,
+      "digest": false
+    },
+    {
+      "kind": "wikipedia",
+      "name": "Wikipedia, nearby articles",
+      "url": "near",
+      "every_s": 604800,
+      "digest": false
+    }
+  ]
+}

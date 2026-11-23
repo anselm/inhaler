@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "An inhaler: reads the public news, notices and posts about a place, and digests them into dated, located, sourced facts.",
+  "description": "A general reader of public news and media, as a service: it collects what is published about the places it follows and does the simple analysis on it.",
   "license": "MIT",
   "bin": { "inhale": "bin/inhale.mjs" },
   "engines": { "node": ">=22.5" },

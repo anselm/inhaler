@@ -5,12 +5,13 @@ deploy) comes from the harness and is not repeated here.
 
 ## What this is
 
-An inhaler: a smart aggregator that reads public news, notices and posts about a place and
-digests them in passes into dated, located, sourced facts and a list of issues. No
-presentation. First beat: Sausalito, for `esimv1-playable-sausalito`. Named `esimv1-social` for its first
-hours. Anselm, 22 November 2026: it is a separate service unrelated to esimv1, it is to take over
-the fetching that cortes, saltspring, matchmaker and the ontology projects each do, and they keep
-only their own reading of what it fetched (`devlog/20261122-one-inhaler.md`).
+A general reader of public news and media, as a service: it collects what is published about the places it follows and
+does the simple analysis (relevance, a sentence, facts with dates, points on a map, a daily list of issues), in passes that
+mark and sweep. No presentation beyond a status page. Three places so far: Sausalito (for `esimv1-playable-sausalito`),
+Cortes Island and Salt Spring Island (the sources the `cortes`, `saltspring` and `saltspring-ontology` projects fetch for
+themselves, so that one day they can read from here). Anselm, 22 and 23 November 2026: it is a separate service unrelated
+to esimv1; it consolidates collecting and simple analysis; matchmaker and the ontology project keep their own deeper
+analysis; none of those projects is to be changed until this one has proved itself (`devlog/20261122-one-inhaler.md`).
 
 ## Where things are
 
@@ -52,4 +53,11 @@ only their own reading of what it fetched (`devlog/20261122-one-inhaler.md`).
   it itself. From canada1: `INHALE_HELP_KEY=$(cat ~/.config/inhaler/help-key) node bin/inhale.mjs help https://inhaler.exe.xyz`
   reads with the local model. It is not left running; canada1 is not to run services durably.
 - The root address serves a plain status page (`lib/page.mjs`). The repository is public (Anselm said either is fine).
+- Passes mark and sweep (Anselm, 2026-11-23: "we first ingest and then separately do other chores like geolocate"): an item
+  carries `digest` (new, done, failed, skip) and `locate` (new, done); a fact carries `locate`. A new chore is a new mark and
+  a new sweep in `lib/passes/`. A pass that cannot run leaves its rows marked: no model stops the digest, no Overpass answer
+  leaves the locate pass waiting an hour. Never mark a row failed for a cause that is not the row's.
+- Island sources (2026-11-23): Cortes Currents answers 403 to some networks and Salt Spring Exchange answered 500 on the first
+  try, as the island projects' own notes say they do; Reddit is left out because it refuses data-centre addresses and would
+  only raise alerts. Radio streams are named in a beat's `media` and not read.
 

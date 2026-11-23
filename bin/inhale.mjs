@@ -20,7 +20,7 @@ import { help } from '../lib/help.mjs'
 
 const [cmd, id, what] = process.argv.slice(2)
 const flag = (name, d = null) => { const i = process.argv.indexOf(`--${name}`); return i < 0 ? d : process.argv[i + 1] ?? true }
-const PASSES = { fetch: (b) => fetchPass(b.id, { all: process.argv.includes('--all') }), digest: (b) => digestPass(b, { limit: Number(flag('limit', 50)), heldFor: Number(process.env.INHALE_HOLD_S || 0) }), locate: (b) => locatePass(b), issues: (b) => issuesPass(b) }
+const PASSES = { fetch: (b) => fetchPass(b, { all: process.argv.includes('--all') }), digest: (b) => digestPass(b, { limit: Number(flag('limit', 50)), heldFor: Number(process.env.INHALE_HOLD_S || 0) }), locate: (b) => locatePass(b), issues: (b) => issuesPass(b) }
 async function round(beat, names) { for (const n of names) { const t = Date.now(), r = await PASSES[n](beat); console.log(`${n.padEnd(8)} ${JSON.stringify(r)} in ${((Date.now() - t) / 1000).toFixed(1)} s`) } }
 
 if (cmd === 'beats') for (const b of beatIds()) console.log(b)

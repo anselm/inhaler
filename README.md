@@ -1,38 +1,51 @@
 # inhaler
 
-It reads what is published about a place (local news, official notices, weather
-alerts, public posts) and digests it into facts: what a source said happened, was decided,
-was proposed or was measured, with the date, the place on a map where the source named
-one, and a link back to the source.
+A general reader of public news and media, as a service. It collects what is published
+about the places it follows (local papers, official notices, weather alerts, public posts,
+photographs, wildlife sightings, reference pages) and does the simple analysis on it:
+which items concern the place, what each reports, the facts it states with their dates,
+and where on a map they belong.
 
-It does not present anything. It is the layer other programs ask: a page that wants to
-show what a town is talking about, a language model looking for questions worth
-simulating, a scenario that wants reported events on its timeline.
+It exists so that programs which need this do not each fetch for themselves. A page that
+shows what a town is talking about, a simulation that wants reported events on its
+timeline, an island site that wants photographs and sightings, an ontology builder that
+wants articles to read: each asks the inhaler and keeps its own, deeper analysis.
 
-It began on 22 November 2026 as `esimv1-social`, the news layer for one simulation, and was
-renamed the same day when it was plain that it belongs to no one project. It is meant to be
-the one reader for several: a simulator, a jobs matcher, an ontology builder, two island
-sites. So far it is a first version that has read one place, Sausalito, California. `devlog/` says what it rests on and what it gets wrong.
+It does not present anything beyond a plain status page. It runs at
+https://inhaler.exe.xyz/ and follows three places so far: Sausalito in California, and
+Cortes Island and Salt Spring Island in British Columbia. It began on 22 November 2026
+(for its first hours it was `esimv1-social`, the news layer for one simulation). `devlog/`
+says what it rests on and what it gets wrong.
 
 ## How it works
 
 A **beat** is what the inhaler follows: a place with a box around it, a sentence saying
 what counts as being about it, and a list of sources. `beats/sausalito.json` is one.
 
-Work is done in passes. Each pass does one thing and records on each row that it has
-done it, so a pass can stop anywhere and pick up later, and nothing is read by a model
-twice.
+Work is done in passes, in the manner of mark and sweep. Collecting only marks: an item
+arrives marked as unread and unplaced. Each later pass sweeps the rows that carry its
+mark, does one thing, and clears the mark. So a pass can stop anywhere and pick up later,
+a pass that cannot run (no model, no map server) leaves its rows waiting, nothing is done
+twice, and a new kind of chore is a new mark and a new sweep.
 
-| pass | does | uses |
-|---|---|---|
-| fetch | asks each source that is due and keeps what it lists | no model |
-| digest | per item: does it concern the place, one sentence, the facts it states | a language model |
-| locate | puts each fact on the map from the place its source named | OpenStreetMap names, no model |
-| issues | reads the recent facts together and names what the place is dealing with | a language model |
+| pass | sweeps | does | uses |
+|---|---|---|---|
+| fetch | sources that are due | asks each and keeps what it lists, as it came | no model |
+| digest | news items not yet read | does it concern the place, one sentence, the facts it states | a language model |
+| locate | facts, then items, not yet placed | puts each on the map from the place names in it | OpenStreetMap names, no model |
+| issues | a place's recent facts, daily | names what the place is dealing with | a language model |
 
-Source kinds so far: RSS and Atom feeds, Google News search, an account's posts on X
-(through the FixTweet API, which needs no key), and US National Weather Service alerts.
-A kind is one small file in `lib/sources/`.
+Reading is the costly pass, and other machines may help with it: one with a model and a
+key takes unread items, reads them and posts its readings back, which are checked like
+the inhaler's own (`inhale help <address>`).
+
+Source kinds so far: RSS and Atom feeds (with an optional pattern, to read a regional
+paper for one place), Google News search, an account's posts on X (through the FixTweet
+API, which needs no key), US National Weather Service alerts, Mastodon tags, iNaturalist
+observations, Flickr tags, Wikimedia Commons and Openverse photographs, and Wikipedia
+articles near a point. A kind is one small function in `lib/sources/`. A source marked
+`"digest": false` in its beat file (a photograph, a sighting) is kept as it came and read
+by no model.
 
 ## Run it
 
@@ -40,20 +53,18 @@ Node 22.5 or newer. One dependency (an XML parser). The database is one SQLite f
 
 ```
 npm install
+node bin/inhale.mjs beats                    # the places this copy follows
 node bin/inhale.mjs run sausalito            # one round of all four passes
 node bin/inhale.mjs status sausalito         # counts, and each source's health
 node bin/inhale.mjs export sausalito facts   # JSON lines
 node bin/inhale.mjs serve                    # the read API on http://127.0.0.1:5191/beats
-node bin/inhale.mjs loop sausalito           # fetch, digest and locate every 15 minutes
+node bin/inhale.mjs loop                     # fetch, digest and locate every place, every 15 minutes
 ```
 
 The model is chosen by `INHALE_TIERS`, a list tried in order: `ollama:<model>` for a model
 on the same machine, `openrouter:<model>` or `anthropic:<model>` for one reached with a
 key. With nothing set it uses `ollama:gpt-oss:20b`. A paid tier stops for the day at
 `INHALE_BUDGET` calls. Every digested item records which model read it.
-
-It runs at https://inhaler.exe.xyz/ (try `/beats`), where it reads Sausalito every fifteen
-minutes with a small hosted model.
 
 ## What it is careful about
 
