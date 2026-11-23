@@ -24,9 +24,12 @@ only their own reading of what it fetched (`devlog/20261122-one-inhaler.md`).
 
 ## Project-specific facts
 
-- The default model is local: `ollama:gpt-oss:20b` on canada1, about ten seconds an item. The
-  Anthropic key on canada1 had no credit when last checked and the OpenRouter key is shared by
-  several projects that have overspent it; do not point this at a paid tier without Anselm's say.
+- Models. On the VM the passes read through OpenRouter with `anthropic/claude-haiku-5.5` (Anselm, 2026-11-22: "we will be
+  using openrouter and or anthropic api keys"), about three seconds an item, capped at `INHALE_BUDGET=300` calls a day. The
+  key is the house's shared OpenRouter key (`harness/private/openrouter.md`), kept in the VM's `/srv/inhaler/env`; calls
+  carry `X-Title: inhaler` so the OpenRouter dashboard shows this service's share. Run with no settings, as on canada1,
+  it uses the local `ollama:gpt-oss:20b` (about five seconds an item, free). OpenRouter does not enforce enum values in a
+  schema, so the digest maps an unknown kind to `other` and never retries for it.
 - FixTweet (`api.fxtwitter.com`): `/2/profile/<name>/statuses` gives an account's recent posts;
   search answers 503 "unavailable due to current API limitations" (22 November 2026). A wrong
   account name answers 404.
@@ -37,9 +40,10 @@ only their own reading of what it fetched (`devlog/20261122-one-inhaler.md`).
 - Nothing about pitching, fundraising or private conversations goes in this repository.
 - Live since 2026-11-22: https://inhaler.exe.xyz/ (exe.dev VM `inhaler`; units `inhaler-loop`, `inhaler-api` on port
   8000, `inhaler-backup.timer`; code in `/srv/inhaler`, database `/srv/inhaler/data/inhale.db`, settings in
-  `/srv/inhaler/env`). `deploy/deploy.sh` by hand on Anselm's say; it never overwrites the VM's database. The VM has no
-  model, so its loop fetches only (`INHALE_PASSES=fetch`) until Anselm chooses who reads (`devlog/20261122-one-inhaler.md`).
+  `/srv/inhaler/env`). `deploy/deploy.sh` by hand on Anselm's say; it never overwrites the VM's database. Its loop
+  fetches, digests and locates every fifteen minutes and reads the issues again once a day.
   To read on canada1 against a copy: fetch `inhaler/inhale-latest.db.gz` from the bucket, or run a beat locally.
 - Nightly backup to Cloudflare R2, bucket `esimv1`, prefix `inhaler/` (the credential is esimv1's, `~/.config/cf/r2`).
-- The other aggregators (matchmaker, ontology-scraper, cortes, saltspring) are other rooms' projects: read, do not change.
+- The other aggregators (matchmaker, ontology-scraper, cortes, saltspring) are not to be changed yet (Anselm, 2026-11-22:
+  "lets not change matchmaker or other projects yet - the inhaler will have to prove itself first").
 

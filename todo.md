@@ -18,12 +18,14 @@ Open work, one line each; the thinking is in `devlog/`.
 
 ## Service
 - [x] Deployed at https://inhaler.exe.xyz/ with a nightly backup and phone alerts (22 November).
-- [ ] **Who reads on the VM** (Anselm to choose): a small hosted model with its own key and a daily cap, a worker on canada1 that posts results back, or both. Until then the VM only fetches.
-- [ ] A write side on the API with a key, for a remote reader and for adding beats.
+- [x] Who reads on the VM: OpenRouter, `anthropic/claude-haiku-5.5`, 300 calls a day at most (22 November).
+- [ ] Watch what it spends for a week and write the number down. Not measured yet.
 - [ ] A lease on each claimed row, so two workers can run.
-- [ ] Its own bucket and credential for backups; a private ntfy topic.
+- [ ] A write side on the API with a key, for adding beats without a deploy.
+- [ ] Noted, not urgent (Anselm, 22 November): the backup shares esimv1's bucket and credential, which is fine; the ntfy topic is guessable, to be fixed if abused; **the read API is open to anyone, which may be a risk** (it gives links, excerpts and its own sentences; a key or a list of allowed origins would close it).
 
 ## Taking over the other aggregators (`devlog/20261122-one-inhaler.md`)
+Not yet. Anselm, 22 November: "lets not change matchmaker or other projects yet - the inhaler will have to prove itself first". The first item below is this project's own and can go ahead.
 - [ ] A lens per client: the digest as a named, pluggable reading with its own table.
 - [ ] Matchmaker's source kinds, probe and 161 sources come here; then matchmaker reads from here.
 - [ ] The ontology project's 21 feeds become a beat; it reads from here.

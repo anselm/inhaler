@@ -47,10 +47,13 @@ node bin/inhale.mjs serve                    # the read API on http://127.0.0.1:
 node bin/inhale.mjs loop sausalito           # fetch, digest and locate every 15 minutes
 ```
 
-The model is chosen by `INHALE_TIERS`, a list tried in order. The default is a model on
-this machine through ollama (`ollama:gpt-oss:20b`), which costs nothing. `openrouter:<model>`
-and `anthropic:<model>` are there for when their keys are set, each stopping for the day
-at `INHALE_BUDGET` calls. Every digested item records which model read it.
+The model is chosen by `INHALE_TIERS`, a list tried in order: `ollama:<model>` for a model
+on the same machine, `openrouter:<model>` or `anthropic:<model>` for one reached with a
+key. With nothing set it uses `ollama:gpt-oss:20b`. A paid tier stops for the day at
+`INHALE_BUDGET` calls. Every digested item records which model read it.
+
+It runs at https://inhaler.exe.xyz/ (try `/beats`), where it reads Sausalito every fifteen
+minutes with a small hosted model.
 
 ## What it is careful about
 

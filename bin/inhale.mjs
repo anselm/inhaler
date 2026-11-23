@@ -25,7 +25,9 @@ if (cmd === 'beats') for (const b of beatIds()) console.log(b)
 else if (cmd === 'serve') serve(Number(flag('port', 5191)), flag('host', '127.0.0.1'))
 else if (cmd === 'run' && id) await round(loadBeat(id), String(flag('passes', 'fetch,digest,locate,issues')).split(','))
 else if (cmd === 'loop') { const every = Number(flag('every', 900)), names = String(flag('passes', process.env.INHALE_PASSES || 'fetch,digest,locate')).split(',')
-  for (;;) { for (const b of beatIds()) await round(loadBeat(b), names).catch((e) => { console.error(e.message); notify(`a round failed (${b})`, e.message) }); await new Promise((r) => setTimeout(r, every * 1000)) } }
+  // the issues are read again once a day, when a model is among the passes
+  const daily = async (b) => { const last = Math.max(0, ...store.issues(b).map((x) => x.made)); if (names.includes('digest') && Date.now() / 1000 - last > 86400) await round(loadBeat(b), ['issues']) }
+  for (;;) { for (const b of beatIds()) await round(loadBeat(b), names).then(() => daily(b)).catch((e) => { console.error(e.message); notify(`a round failed (${b})`, e.message) }); await new Promise((r) => setTimeout(r, every * 1000)) } }
 else if (cmd === 'backup') { try { console.log('backup  ', JSON.stringify(await backup(store.file))) } catch (e) { await notify('the backup did not go', e.message); process.exit(1) } }
 else if (cmd === 'status' && id) { loadBeat(id); console.log(store.counts(id)); for (const s of store.sources(id)) console.log(`${s.fails ? 'FAIL' : s.last_ok ? 'ok  ' : 'new '} ${s.kind.padEnd(12)} ${s.name.padEnd(34)} ${s.last_count ?? '-'} listed${s.last_error ? '  last error: ' + s.last_error : ''}`) }
 else if (cmd === 'export' && id && ['items', 'facts', 'issues'].includes(what)) { loadBeat(id); for (const r of store[what](id, { limit: 100000 })) console.log(JSON.stringify(r)) }

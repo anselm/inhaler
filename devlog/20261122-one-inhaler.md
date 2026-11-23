@@ -114,3 +114,19 @@ stays with the engine.
   full texts, but it does give them to anyone.
 - The backup shares another project's bucket and credential.
 - The ntfy topic is the house's shared one, which anyone who guesses its name can read.
+
+## Later the same day: who reads, settled
+
+My three options were put badly, and Anselm asked what they meant. Plainly: the VM cannot
+run a model itself. A model is reached over the network, from a provider that charges per
+call. He said: "we will be using openrouter and or anthropic api keys." The idea of
+canada1 doing the reading was only a way to use its free local model, and is dropped.
+
+So the VM now reads through OpenRouter with `anthropic/claude-haiku-5.5`, at most 300
+calls a day. The first item read there took 2.9 seconds. Calls are labelled with this
+service's name so the shared key's dashboard shows its share. What it costs over a week
+has not been measured.
+
+He also said the other projects are not to be changed until this one has proved itself,
+and that the shared bucket and the guessable alert topic do not trouble him; the open
+read API may be a risk and is on the list.
