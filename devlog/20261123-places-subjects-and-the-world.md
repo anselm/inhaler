@@ -39,3 +39,32 @@ this reader (406) and is left out; the two under review for terms are left out a
 project left them. Three of the feeds are in an older format (RSS 1.0) and one is long
 enough to trip the parser's guard; the feed reader was fixed for both. First fetch: 290
 items in two seconds.
+
+## Later the same day: the name server and several places per item, built
+
+Anselm: "add our own place name server using geonames - i would incrementally attempt to
+fetch this and then use it when ready - in that way the live container can leverage it
+when loaded", and "allow multiple places per post".
+
+**The name server.** `lib/names.mjs`. GeoNames publishes a file per country; the loop
+fetches one missing country each round, for the countries the beats name, reads it as a
+stream and writes it in small batches so its own rounds are not held up. On canada1 the
+United States (2,241,461 names) and Canada loaded in 32 seconds together; the database
+grew to 362 MB. The licence was read today on GeoNames' own readme: Creative Commons
+Attribution 4.0. `/names?q=Ganges` asks it directly.
+
+The locate pass no longer waits for anything. It takes the names inside the beat's box
+from the name server, lays OpenStreetMap's local names over them when those have arrived,
+and works. When the count of names for a beat changes, every fact that found no place and
+every item is looked at again. Salt Spring, which OpenStreetMap had refused for a day,
+went from no names to 377 and from no items placed by name to 23 of 140.
+
+**Several places per item.** A table of an item's places: the points of its facts, and,
+for an item no model read, every known name found in its title and text. `/items` returns
+them as `places`. The item's own point stays its source's, else the first found. On Cortes
+55 of 206 items name a place and 13 name more than one.
+
+Wrong in ways seen in the first output: a thing and its park come back as two places
+("Smelt Bay" and "Smelt Bay Provincial Park"); a plain word that is also a place's name
+matches; GeoNames has no streets, so Sausalito's street-level facts still rest on
+OpenStreetMap having answered once.

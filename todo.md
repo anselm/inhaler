@@ -10,8 +10,11 @@ Open work, one line each; the thinking is in `devlog/`.
 - [ ] A probe that turns a name or address into a source definition, and a `candidate` state for sources a person suggested (matchmaker has both).
 
 ## Places and subjects (Anselm's questions, 23 November; `devlog/20261123-places-subjects-and-the-world.md`)
-- [ ] A base gazetteer that needs no outside service at lookup or at set-up: GeoNames loaded once into the store, with OpenStreetMap's local names added per beat when its servers answer.
-- [ ] Every place an item names, not one point: a table of an item's places, from its facts and from the gazetteer names found in its text.
+- [x] Its own name server on GeoNames, loaded a country at a time by the loop, used as it arrives (23 November).
+- [x] Every place an item names is kept (`item_places`), not one point (23 November).
+- [ ] Two names for one thing come back as two places ("Smelt Bay" and "Smelt Bay Provincial Park"); keep the longer where one contains the other and they are close.
+- [ ] A plain word that is also a place's name still matches; nothing weighs how likely a name is to be meant.
+- [ ] Streets without OpenStreetMap: its servers refused both islands for a day. A country extract read on the machine would end that.
 - [ ] Mentions as the digest's by-product: the organisations, offices and things named, typed, as written. Identity and relations stay with the ontology project.
 - [ ] A small fixed list of topics in place of free words.
 

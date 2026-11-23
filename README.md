@@ -32,8 +32,14 @@ twice, and a new kind of chore is a new mark and a new sweep.
 |---|---|---|---|
 | fetch | sources that are due | asks each and keeps what it lists, as it came | no model |
 | digest | news items not yet read | does it concern the place, one sentence, the facts it states | a language model |
-| locate | facts, then items, not yet placed | puts each on the map from the place names in it | OpenStreetMap names, no model |
+| locate | facts, then items, not yet placed | puts each on the map from the place names in it; an item keeps every place it names | its own name server, no model |
 | issues | a place's recent facts, daily | names what the place is dealing with | a language model |
+
+Place names are the service's own. It keeps a copy of GeoNames (geonames.org, CC BY 4.0),
+fetched a country at a time in the background for the countries its beats name, and looks
+names up there with no outside call. GeoNames has no streets, so a beat's local names are
+also asked of OpenStreetMap once, when its servers answer. When more names arrive,
+everything that found no place is looked for again. `/names?q=Ganges` asks it directly.
 
 Reading is the costly pass, and other machines may help with it: one with a model and a
 key takes unread items, reads them and posts its readings back, which are checked like

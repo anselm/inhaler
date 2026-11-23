@@ -60,4 +60,11 @@ analysis; none of those projects is to be changed until this one has proved itse
 - Island sources (2026-11-23): Cortes Currents answers 403 to some networks and Salt Spring Exchange answered 500 on the first
   try, as the island projects' own notes say they do; Reddit is left out because it refuses data-centre addresses and would
   only raise alerts. Radio streams are named in a beat's `media` and not read.
+- The name server (2026-11-23, Anselm: "add our own place name server using geonames - i would incrementally attempt to
+  fetch this and then use it when ready"): `lib/names.mjs`, tables `names` and `names_loaded`. The loop loads one missing
+  country per round for the countries in the beats' `countries` (curl and unzip on the machine; the United States is 2.2
+  million rows and about 300 MB in the database, loaded in half a minute on canada1). The locate pass uses whatever has
+  arrived and looks again at everything when a beat's count of names changes. The backup leaves these tables out.
+  An item's places are in `item_places` and come back as `places` on `/items` (Anselm: "allow multiple places per post").
+- A "beat" is one thing the service follows: a place with a box, or a subject without one; one file in `beats/`.
 
