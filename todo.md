@@ -3,6 +3,7 @@
 Open work, one line each; the thinking is in `devlog/`.
 
 ## Sources
+- [ ] tidelinemarin.com (Anselm, 23 November: it "has alerts on road closures"): see what it publishes and whether it can be read as a source for Sausalito; it may be the county's tide dashboard the news spoke of.
 - [ ] City pages with no feed: sausalito.gov news, council agendas and staff reports (a `page` kind: fetch, find the dated entries, follow them).
 - [ ] Calendars (iCal), YouTube channel feeds (council meetings), podcasts and radio that publish a feed.
 - [ ] Mastodon and Bluesky tag feeds; Reddit (it refuses data-centre addresses, by the Salt Spring notes).
