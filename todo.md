@@ -20,7 +20,8 @@ Open work, one line each; the thinking is in `devlog/`.
 - [x] Deployed at https://inhaler.exe.xyz/ with a nightly backup and phone alerts (22 November).
 - [x] Who reads on the VM: OpenRouter, `anthropic/claude-haiku-5.5`, 300 calls a day at most (22 November).
 - [ ] Watch what it spends for a week and write the number down. Not measured yet.
-- [ ] A lease on each claimed row, so two workers can run.
+- [x] Helpers: `POST /work/claim` and `/work/done` with a key, a lease on each claimed item, `inhale help <address>` (22 November). canada1's key is in `~/.config/inhaler/help-key`. No helper is left running.
+- [ ] The inhaler's own loop takes no lease, so two loops on one database would both read an item.
 - [ ] A write side on the API with a key, for adding beats without a deploy.
 - [ ] Noted, not urgent (Anselm, 22 November): the backup shares esimv1's bucket and credential, which is fine; the ntfy topic is guessable, to be fixed if abused; **the read API is open to anyone, which may be a risk** (it gives links, excerpts and its own sentences; a key or a list of allowed origins would close it).
 
@@ -34,5 +35,5 @@ Not yet. Anselm, 22 November: "lets not change matchmaker or other projects yet 
 - [ ] The world's dated future events (esimv1's `future-known.toml`) as a beat, once each row has a source.
 
 ## For esimv1
-- [ ] The Sausalito page reading `/beats/sausalito/issues` and facts for the period on screen.
+- [x] The Sausalito page reads `/beats/sausalito/issues` and `/facts` (https://sausalito.exe.xyz/, 22 November).
 - [ ] A module that puts a beat's located facts on a scenario's timeline.

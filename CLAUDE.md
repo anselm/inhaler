@@ -46,4 +46,10 @@ only their own reading of what it fetched (`devlog/20261122-one-inhaler.md`).
 - Nightly backup to Cloudflare R2, bucket `esimv1`, prefix `inhaler/` (the credential is esimv1's, `~/.config/cf/r2`).
 - The other aggregators (matchmaker, ontology-scraper, cortes, saltspring) are not to be changed yet (Anselm, 2026-11-22:
   "lets not change matchmaker or other projects yet - the inhaler will have to prove itself first").
+- Helpers (2026-11-22, Anselm: "inhaler collects raw content, marked as dirty, anybody such as canada1 can go and grab some,
+  do analysis, and push analysis back"): `POST /work/claim` and `/work/done` need `Authorization: Bearer <secret>` from the
+  VM's `INHALE_KEYS` (name:secret pairs). The VM leaves a new item for helpers for `INHALE_HOLD_S` (1800 s) and then reads
+  it itself. From canada1: `INHALE_HELP_KEY=$(cat ~/.config/inhaler/help-key) node bin/inhale.mjs help https://inhaler.exe.xyz`
+  reads with the local model. It is not left running; canada1 is not to run services durably.
+- The root address serves a plain status page (`lib/page.mjs`). The repository is public (Anselm said either is fine).
 
