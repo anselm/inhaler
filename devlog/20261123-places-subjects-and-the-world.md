@@ -99,7 +99,7 @@ Anselm, of the Sausalito page's news marks: "it is ok to have longer headlines, 
 sentence ... the inhaler should summarize for us yes. feels like it is a good job for it as part of a
 simple analytics role." Each fact now carries a `headline` of four to nine words beside its claim. The
 digest asks for it with the claim, so new facts cost nothing more; a fifth pass, `headlines`, writes one
-for every fact that has none, 25 claims to a call, and runs in the loop. The model sees only the claim, so
+for every fact that has none, 12 claims to a call, and runs in the loop. (25 to a call came back empty from the hosted model: its reasoning used the whole output limit, which is now 8,000 tokens.) The model sees only the claim, so
 a headline can lose a qualifier but cannot bring in something from elsewhere; nothing checks that it
 kept the claim's meaning. First local run (gpt-oss:20b): 41 of 100 kept, the rest answered too long or
 not at all and wait for the next round.
