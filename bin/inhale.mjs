@@ -15,6 +15,7 @@ import { fetchPass } from '../lib/passes/fetch.mjs'
 import { digestPass } from '../lib/passes/digest.mjs'
 import { locatePass } from '../lib/passes/locate.mjs'
 import { issuesPass } from '../lib/passes/issues.mjs'
+import { headlinesPass } from '../lib/passes/headlines.mjs'
 import { serve } from '../lib/server.mjs'
 import { backup } from '../lib/backup.mjs'
 import { notify } from '../lib/notify.mjs'
@@ -23,13 +24,13 @@ import { namesStep, loadCountry, lookup } from '../lib/names.mjs'
 
 const [cmd, id, what] = process.argv.slice(2)
 const flag = (name, d = null) => { const i = process.argv.indexOf(`--${name}`); return i < 0 ? d : process.argv[i + 1] ?? true }
-const PASSES = { fetch: (b) => fetchPass(b, { all: process.argv.includes('--all') }), digest: (b) => digestPass(b, { limit: Number(flag('limit', 50)), heldFor: Number(process.env.INHALE_HOLD_S || 0) }), locate: (b) => locatePass(b), issues: (b) => issuesPass(b) }
+const PASSES = { fetch: (b) => fetchPass(b, { all: process.argv.includes('--all') }), digest: (b) => digestPass(b, { limit: Number(flag('limit', 50)), heldFor: Number(process.env.INHALE_HOLD_S || 0) }), locate: (b) => locatePass(b), issues: (b) => issuesPass(b), headlines: (b) => headlinesPass(b) }
 async function round(beat, names) { for (const n of names) { const t = Date.now(), r = await PASSES[n](beat); console.log(`${n.padEnd(8)} ${JSON.stringify(r)} in ${((Date.now() - t) / 1000).toFixed(1)} s`) } }
 
 if (cmd === 'beats') for (const b of beatIds()) console.log(b)
 else if (cmd === 'serve') serve(Number(flag('port', 5191)), flag('host', '127.0.0.1'))
-else if (cmd === 'run' && id) await round(loadBeat(id), String(flag('passes', 'fetch,digest,locate,issues')).split(','))
-else if (cmd === 'loop') { const every = Number(flag('every', 900)), names = String(flag('passes', process.env.INHALE_PASSES || 'fetch,digest,locate')).split(',')
+else if (cmd === 'run' && id) await round(loadBeat(id), String(flag('passes', 'fetch,digest,locate,headlines,issues')).split(','))
+else if (cmd === 'loop') { const every = Number(flag('every', 900)), names = String(flag('passes', process.env.INHALE_PASSES || 'fetch,digest,locate,headlines')).split(',')
   // the issues are read again once a day, when a model is among the passes
   const daily = async (b) => { const last = Math.max(0, ...store.issues(b).map((x) => x.made)); if (names.includes('digest') && Date.now() / 1000 - last > 86400) await round(loadBeat(b), ['issues']) }
   for (;;) {

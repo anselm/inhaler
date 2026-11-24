@@ -68,3 +68,5 @@ analysis; none of those projects is to be changed until this one has proved itse
   An item's places are in `item_places` and come back as `places` on `/items` (Anselm: "allow multiple places per post").
 - A "beat" is one thing the service follows: a place with a box, or a subject without one; one file in `beats/`.
 
+
+- Headlines (2026-11-24, Anselm: "the inhaler should summarize for us yes ... a good job for it as part of a simple analytics role"): every fact has `headline`, four to nine words, asked for with the claim at digest and written for older facts by the `headlines` pass (`lib/passes/headlines.mjs`, 25 claims a call, in the loop's default passes). A headline is a shortening of the claim only; it is not checked against the source.

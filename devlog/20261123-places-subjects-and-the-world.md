@@ -92,3 +92,14 @@ for outcomes; this is the measurement that was listed as not done.
 
 The same reading surfaced a report of a former official's arrest. It is news and the
 inhaler keeps it. The Sausalito page now leaves such reports out of its panel.
+
+## 24 November: headlines
+
+Anselm, of the Sausalito page's news marks: "it is ok to have longer headlines, definitely don't cut mid
+sentence ... the inhaler should summarize for us yes. feels like it is a good job for it as part of a
+simple analytics role." Each fact now carries a `headline` of four to nine words beside its claim. The
+digest asks for it with the claim, so new facts cost nothing more; a fifth pass, `headlines`, writes one
+for every fact that has none, 25 claims to a call, and runs in the loop. The model sees only the claim, so
+a headline can lose a qualifier but cannot bring in something from elsewhere; nothing checks that it
+kept the claim's meaning. First local run (gpt-oss:20b): 41 of 100 kept, the rest answered too long or
+not at all and wait for the next round.
