@@ -7,7 +7,7 @@ deploy) comes from the harness and is not repeated here.
 
 A general reader of public news and media, as a service: it collects what is published about the places it follows and
 does the simple analysis (relevance, a sentence, facts with dates, points on a map, a daily list of issues), in passes that
-mark and sweep. No presentation beyond a status page. Three places so far: Sausalito (for `esimv1-playable-sausalito`),
+mark and sweep. No presentation beyond a status page. Three places so far: Sausalito (for `esimv1-sausalito-model`),
 Cortes Island and Salt Spring Island (the sources the `cortes`, `saltspring` and `saltspring-ontology` projects fetch for
 themselves, so that one day they can read from here). Anselm, 22 and 23 November 2026: it is a separate service unrelated
 to esimv1; it consolidates collecting and simple analysis; matchmaker and the ontology project keep their own deeper
